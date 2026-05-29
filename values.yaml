@@ -1109,6 +1109,8 @@ database:
     password: "password"
     coreDatabase: "registry"
     # if using existing secret, the key must be "password"
+    # if the secret also contains a "username" key, it will be used for the username;
+    # otherwise the username field above is used
     existingSecret: ""
     # "disable" - No SSL
     # "require" - Always SSL (skip verification)

@@ -136,6 +136,12 @@ spec:
             value: /etc/harbor/ssl/core/ca.crt
           {{- end }}
           {{- if .Values.database.external.existingSecret }}
+          - name: POSTGRESQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.database.external.existingSecret }}
+                key: username
+                optional: true
           - name: POSTGRESQL_PASSWORD
             valueFrom:
               secretKeyRef:
